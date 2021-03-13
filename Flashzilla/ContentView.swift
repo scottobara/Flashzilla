@@ -7,20 +7,25 @@
 
 import SwiftUI
 
+func withOptionalAnimation<Result>(_ animation: Animation? = .default, _ body: () throws -> Result) rethrows -> Result {
+    if UIAccessibility.isReduceMotionEnabled {
+        return try body()
+    } else {
+        return try withAnimation(animation, body)
+    }
+}
+
 struct ContentView: View {
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
+    @State private var scale: CGFloat = 1
+
     var body: some View {
         Text("Hello, World!")
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-                    print("Moving to the background!")
+            .scaleEffect(scale)
+            .onTapGesture {
+                withOptionalAnimation {
+                    self.scale *= 1.5
                 }
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
-                    print("Moving back to the foreground!")
-                }
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.userDidTakeScreenshotNotification)) { _ in
-                    print("User took a screenshot!")
-                }
+            }
     }
 }
 
