@@ -10,6 +10,7 @@
 		36719CB225FF66A4005517CA /* EditCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36719CB125FF66A4005517CA /* EditCards.swift */; };
 		367332D125FC971A0071C5E9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367332D025FC971A0071C5E9 /* Card.swift */; };
 		367332D425FC98060071C5E9 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367332D325FC98060071C5E9 /* CardView.swift */; };
+		367527AE2600B89B00167040 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367527AD2600B89B00167040 /* SettingsView.swift */; };
 		369CFFDD25FA25E20020DF8A /* FlashzillaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369CFFDC25FA25E20020DF8A /* FlashzillaApp.swift */; };
 		369CFFDF25FA25E20020DF8A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369CFFDE25FA25E20020DF8A /* ContentView.swift */; };
 		369CFFE125FA25E30020DF8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 369CFFE025FA25E30020DF8A /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		36719CB125FF66A4005517CA /* EditCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCards.swift; sourceTree = "<group>"; };
 		367332D025FC971A0071C5E9 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		367332D325FC98060071C5E9 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		367527AD2600B89B00167040 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		369CFFD925FA25E20020DF8A /* Flashzilla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashzilla.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		369CFFDC25FA25E20020DF8A /* FlashzillaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashzillaApp.swift; sourceTree = "<group>"; };
 		369CFFDE25FA25E20020DF8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				369CFFDE25FA25E20020DF8A /* ContentView.swift */,
 				367332D025FC971A0071C5E9 /* Card.swift */,
 				36719CB125FF66A4005517CA /* EditCards.swift */,
+				367527AD2600B89B00167040 /* SettingsView.swift */,
 				369CFFE025FA25E30020DF8A /* Assets.xcassets */,
 				369CFFE525FA25E30020DF8A /* Info.plist */,
 				369CFFE225FA25E30020DF8A /* Preview Content */,
@@ -150,6 +153,7 @@
 				369CFFDF25FA25E20020DF8A /* ContentView.swift in Sources */,
 				367332D125FC971A0071C5E9 /* Card.swift in Sources */,
 				367332D425FC98060071C5E9 /* CardView.swift in Sources */,
+				367527AE2600B89B00167040 /* SettingsView.swift in Sources */,
 				36719CB225FF66A4005517CA /* EditCards.swift in Sources */,
 				369CFFDD25FA25E20020DF8A /* FlashzillaApp.swift in Sources */,
 			);

@@ -20,10 +20,12 @@ struct ContentView: View {
     @State private var cards = [Card]()
 
     @State private var isActive = true
-    @State private var timeRemaining = 100
+    @State private var timeRemaining = 10
+    @State private var feedback = UINotificationFeedbackGenerator()
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @State private var showingEditScreen = false
+    @State private var showingSettingsScreen = false
     
     var body: some View {
         ZStack {
@@ -68,6 +70,16 @@ struct ContentView: View {
             
             VStack {
                 HStack {
+                    Button(action: {
+                        self.showingSettingsScreen = true
+                    }) {
+                        Image(systemName: "gearshape")
+                            .padding()
+                            .background(Color.black.opacity(0.7))
+                            .clipShape(Circle())
+                        Text(showingSettingsScreen ? "true" : "false" )
+                    }
+                    
                     Spacer()
 
                     Button(action: {
@@ -128,6 +140,14 @@ struct ContentView: View {
             guard self.isActive else { return }
             if self.timeRemaining > 0 {
                 self.timeRemaining -= 1
+                
+                if self.timeRemaining == 1 {
+                    self.feedback.prepare()
+                }
+                if self.timeRemaining == 0 {
+                    self.feedback.notificationOccurred(.error)
+                    self.timer.upstream.connect().cancel()
+                }
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
@@ -143,6 +163,9 @@ struct ContentView: View {
                 self.isActive = true
             }
         }
+//        .sheet(isPresented: $showingSettingsScreen, onDismiss: resetCards) {
+//            SettingsView()
+//        }
         .sheet(isPresented: $showingEditScreen, onDismiss: resetCards) {
             EditCards()
         }
@@ -159,7 +182,7 @@ struct ContentView: View {
     }
     
     func resetCards() {
-        timeRemaining = 100
+        timeRemaining = 10
         isActive = true
         loadData()
     }
